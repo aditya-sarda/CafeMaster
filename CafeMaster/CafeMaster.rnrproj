@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <BuildTasksDirectory Condition=" '$(BuildTasksDirectory)' == ''">$(MSBuildProgramFiles32)\MSBuild\Microsoft\Dynamics\AX</BuildTasksDirectory>
+    <Model>CCD</Model>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputPath>bin</OutputPath>
+    <SchemaVersion>2.0</SchemaVersion>
+    <GenerateCrossReferences>True</GenerateCrossReferences>
+    <RunAppCheckerRules>False</RunAppCheckerRules>
+    <LogAppcheckerDiagsAsErrors>False</LogAppcheckerDiagsAsErrors>
+    <DeployOnline>False</DeployOnline>
+    <ProjectGuid>{9454f880-5e5b-4f90-8917-a505c4cd3e96}</ProjectGuid>
+    <Name>CafeMaster</Name>
+    <RootNamespace>CafeMaster</RootNamespace>
+    <StartupType>Class</StartupType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Configuration>Debug</Configuration>
+    <DBSyncInBuild>False</DBSyncInBuild>
+    <GenerateFormAdaptors>False</GenerateFormAdaptors>
+    <Company>
+    </Company>
+    <Partition>initial</Partition>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DataEntityExpandParentChildRelations>False</DataEntityExpandParentChildRelations>
+    <DataEntityUseLabelTextAsFieldName>False</DataEntityUseLabelTextAsFieldName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Display Menu Items\" />
+    <Folder Include="Forms\" />
+    <Folder Include="Label Files\" />
+    <Folder Include="Menu Extensions\" />
+    <Folder Include="Tables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AxForm\CafeTable">
+      <SubType>Content</SubType>
+      <Name>CafeTable</Name>
+      <Link>Forms\CafeTable</Link>
+    </Content>
+    <Content Include="AxLabelFile\CCD_en-US">
+      <SubType>Content</SubType>
+      <Name>CCD_en-US</Name>
+      <Link>Label Files\CCD_en-US</Link>
+    </Content>
+    <Content Include="AxMenuExtension\AccountsReceivable.CCD">
+      <SubType>Content</SubType>
+      <Name>AccountsReceivable.CCD</Name>
+      <Link>Menu Extensions\AccountsReceivable.CCD</Link>
+    </Content>
+    <Content Include="AxMenuItemDisplay\CafeTable">
+      <SubType>Content</SubType>
+      <Name>CafeTable</Name>
+      <Link>Display Menu Items\CafeTable</Link>
+    </Content>
+    <Content Include="AxTable\CafeLine">
+      <SubType>Content</SubType>
+      <Name>CafeLine</Name>
+      <Link>Tables\CafeLine</Link>
+    </Content>
+    <Content Include="AxTable\CafeTable">
+      <SubType>Content</SubType>
+      <Name>CafeTable</Name>
+      <Link>Tables\CafeTable</Link>
+    </Content>
+    <Content Include="CCD.en-US.label.txt">
+      <SubType>Content</SubType>
+      <Name>CCD.en-US.label.txt</Name>
+      <DependentUpon>AxLabelFile\CCD_en-US</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Import Project="$(BuildTasksDirectory)\Microsoft.Dynamics.Framework.Tools.BuildTasks.17.0.targets" />
+</Project>
